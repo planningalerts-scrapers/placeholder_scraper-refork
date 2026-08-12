@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require "bundler/setup"
+Bundler.require
+
 require "date"
 require "scraperwiki"
 
@@ -13,8 +16,8 @@ record = {
   "description" => "",
   "info_url" => "",
   "date_scraped" => Date.today.to_s,
-  "authority_label" => "place_holder"
+  "authority_label" => "place_holder",
 }
 
-puts "Saving #{record["authority_label"]} empty record"
+puts "Saving #{record['authority_label']} empty record"
 ScraperWiki.save_sqlite(%w[authority_label council_reference], record)
